@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Reflection;
-
 namespace IntegrationConfigurator
 {
     public partial class Main : Form

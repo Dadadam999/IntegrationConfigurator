@@ -1,11 +1,14 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Text;
+using System.Xml.Serialization;
 
 namespace IntegrationConfigurator
 {
     [Serializable]
     public class Integration
     {
-        private BinaryFormatter _formatter;
+        private XmlSerializer _serializer = new XmlSerializer( typeof( List<IntegrationModel> ) );
+
+        [XmlElement( "IntegrationModel" )]
         public List<IntegrationModel> Integrations { get; set; } = new List<IntegrationModel>();
 
         public IntegrationModel? GetByName( string name )
@@ -20,12 +23,10 @@ namespace IntegrationConfigurator
 
         public void Serialize()
         {
-            _formatter = new BinaryFormatter();
-
             try
             {
-                using FileStream stream = new FileStream( "config.integration", FileMode.Create );
-                _formatter.Serialize( stream, Integrations );
+                using FileStream stream = new FileStream( "config_integration.xml", FileMode.Create );
+                _serializer.Serialize( stream, Integrations );
             }
             catch( Exception ex )
             {
@@ -35,56 +36,52 @@ namespace IntegrationConfigurator
 
         public void Deserialize()
         {
-            if( !File.Exists( "config.integration" ) )
+            if( !File.Exists( "config_integration.xml" ) )
                 return;
-
-            _formatter= new BinaryFormatter();
 
             try
             {
-                using FileStream stream = new FileStream( "config.integration", FileMode.Open );
-                Integrations = ( List<IntegrationModel> ) _formatter.Deserialize( stream );
+                using FileStream stream = new FileStream( "config_integration.xml", FileMode.Open );
+                Integrations = (List<IntegrationModel>) _serializer.Deserialize( stream );
             }
             catch( Exception ex )
             {
-
                 MessageBox.Show( $"Ошибка при загрузке данных: {ex.Message}" );
             }
         }
 
-        public Dictionary<string,string> ParseMatchingFieldsFromString( RichTextBox text )
+        public (string, string)[] ParseMatchingFieldsFromString( RichTextBox text )
         {
-            Dictionary<string, string> result = new();
+            List<(string, string)> result = new List<(string, string)>();
 
             try
             {
-
                 foreach( string line in text.Lines )
                 {
                     string[] fields = line.Split( ',' );
-                    result.Add( fields[0], fields[1] );
+                    result.Add( (fields[0], fields[1]) );
                 }
-
             }
             catch( Exception ex )
             {
-                MessageBox.Show( $"Данные поля соответсвия полей введены не вверном формате!\nОшибка:{ex.Message}" );
+                MessageBox.Show( $"Данные поля соответствия полей введены неверно!\nОшибка:{ex.Message}" );
             }
-            return result;
+
+            return result.ToArray();
         }
 
-        public string MatchingFieldsToString( Dictionary<string, string> fields )
+        public string MatchingFieldsToString( (string, string)[] fields )
         {
-            if( fields == null || fields.Count == 0 )
+            if( fields == null || fields.Length == 0 )
                 return string.Empty;
 
-            string result = string.Empty;
+            StringBuilder result = new StringBuilder();
 
-            foreach( KeyValuePair<string, string> field in fields )
-                result += $"{field.Key},{field.Value}\n";
+            foreach( (string key, string value) in fields )
+                result.AppendLine( $"{key},{value}" );
 
-            return result;
+            return result.ToString();
         }
+
     }
 }
-
