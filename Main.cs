@@ -31,7 +31,8 @@ namespace IntegrationConfigurator
                 _secretKey.Text,
                 _formId.Text,
                 _integrationId.Text,
-                _dateField.Text
+                _dateField.Text,
+                _domain.Text
             } );
 
             if( Validation.IsEmpty() )
@@ -50,6 +51,7 @@ namespace IntegrationConfigurator
             model.FormId = _formId.Text;
             model.IntegrationId = _integrationId.Text;
             model.DateField = _dateField.Text;
+            model.Domain = _domain.Text;
             _listManager.Save( model );
             MessageBox.Show( "Данный сохранены!" );
         }
@@ -87,6 +89,7 @@ namespace IntegrationConfigurator
                 _formId.Text = model.FormId;
                 _integrationId.Text = model.IntegrationId;
                 _dateField.Text = model.DateField;
+                _domain.Text = model.Domain;
             }
         }
 

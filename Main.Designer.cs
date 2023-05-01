@@ -49,12 +49,14 @@
             _integrationId= new TextBox() ;
             _formId= new TextBox() ;
             _cycleFormField= new TextBox() ;
-            label8= new Label() ;
-            _fieldsMatching= new RichTextBox() ;
-            panel4= new Panel() ;
-            _save= new Button() ;
             label9= new Label() ;
             _dateField= new TextBox() ;
+            panel4= new Panel() ;
+            _save= new Button() ;
+            _fieldsMatching= new RichTextBox() ;
+            label8= new Label() ;
+            label10= new Label() ;
+            _domain= new TextBox() ;
             splitter1= new Splitter() ;
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -145,15 +147,18 @@
             tableLayoutPanel1.Controls.Add( _integrationId, 1, 4 );
             tableLayoutPanel1.Controls.Add( _formId, 1, 5 );
             tableLayoutPanel1.Controls.Add( _cycleFormField, 1, 6 );
-            tableLayoutPanel1.Controls.Add( label8, 0, 8 );
-            tableLayoutPanel1.Controls.Add( _fieldsMatching, 1, 8 );
-            tableLayoutPanel1.Controls.Add( panel4, 1, 9 );
             tableLayoutPanel1.Controls.Add( label9, 0, 7 );
             tableLayoutPanel1.Controls.Add( _dateField, 1, 7 );
+            tableLayoutPanel1.Controls.Add( panel4, 1, 10 );
+            tableLayoutPanel1.Controls.Add( _fieldsMatching, 1, 9 );
+            tableLayoutPanel1.Controls.Add( label8, 0, 9 );
+            tableLayoutPanel1.Controls.Add( label10, 0, 8 );
+            tableLayoutPanel1.Controls.Add( _domain, 1, 8 );
             tableLayoutPanel1.Dock= DockStyle.Fill ;
             tableLayoutPanel1.Location= new Point( 0, 0 ) ;
             tableLayoutPanel1.Name= "tableLayoutPanel1" ;
-            tableLayoutPanel1.RowCount= 10 ;
+            tableLayoutPanel1.RowCount= 11 ;
+            tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
@@ -287,43 +292,6 @@
             _cycleFormField.Size= new Size( 660, 31 ) ;
             _cycleFormField.TabIndex= 15 ;
             // 
-            // label8
-            // 
-            label8.Location= new Point( 4, 409 ) ;
-            label8.Name= "label8" ;
-            label8.Size= new Size( 279, 500 ) ;
-            label8.TabIndex= 8 ;
-            label8.Text= "Соотношение полей\r\nВведите поля через запятую сначала поле в MSSQL потом название поле интеграции формы.\r\nНапример: \r\nLastName,Фамилия\r\nFirstName,Имя" ;
-            // 
-            // _fieldsMatching
-            // 
-            _fieldsMatching.Location= new Point( 290, 412 ) ;
-            _fieldsMatching.Name= "_fieldsMatching" ;
-            _fieldsMatching.Size= new Size( 658, 491 ) ;
-            _fieldsMatching.TabIndex= 16 ;
-            _fieldsMatching.Text= "" ;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add( _save );
-            panel4.Dock= DockStyle.Fill ;
-            panel4.Location= new Point( 291, 915 ) ;
-            panel4.Margin= new Padding( 4, 5, 4, 5 ) ;
-            panel4.Name= "panel4" ;
-            panel4.Size= new Size( 658, 186 ) ;
-            panel4.TabIndex= 17 ;
-            // 
-            // _save
-            // 
-            _save.Dock= DockStyle.Top ;
-            _save.Location= new Point( 0, 0 ) ;
-            _save.Name= "_save" ;
-            _save.Size= new Size( 658, 45 ) ;
-            _save.TabIndex= 2 ;
-            _save.Text= "Сохранить" ;
-            _save.UseVisualStyleBackColor= true ;
-            _save.Click+= _save_Click ;
-            // 
             // label9
             // 
             label9.Dock= DockStyle.Fill ;
@@ -342,6 +310,61 @@
             _dateField.Name= "_dateField" ;
             _dateField.Size= new Size( 658, 31 ) ;
             _dateField.TabIndex= 19 ;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add( _save );
+            panel4.Location= new Point( 291, 966 ) ;
+            panel4.Margin= new Padding( 4, 5, 4, 5 ) ;
+            panel4.Name= "panel4" ;
+            panel4.Size= new Size( 658, 135 ) ;
+            panel4.TabIndex= 17 ;
+            // 
+            // _save
+            // 
+            _save.Dock= DockStyle.Top ;
+            _save.Location= new Point( 0, 0 ) ;
+            _save.Name= "_save" ;
+            _save.Size= new Size( 658, 45 ) ;
+            _save.TabIndex= 2 ;
+            _save.Text= "Сохранить" ;
+            _save.UseVisualStyleBackColor= true ;
+            _save.Click+= _save_Click ;
+            // 
+            // _fieldsMatching
+            // 
+            _fieldsMatching.Dock= DockStyle.Fill ;
+            _fieldsMatching.Location= new Point( 290, 463 ) ;
+            _fieldsMatching.Name= "_fieldsMatching" ;
+            _fieldsMatching.Size= new Size( 660, 494 ) ;
+            _fieldsMatching.TabIndex= 16 ;
+            _fieldsMatching.Text= "" ;
+            // 
+            // label8
+            // 
+            label8.Dock= DockStyle.Fill ;
+            label8.Location= new Point( 4, 460 ) ;
+            label8.Name= "label8" ;
+            label8.Size= new Size( 279, 500 ) ;
+            label8.TabIndex= 8 ;
+            label8.Text= "Соотношение полей\r\nВведите поля через запятую сначала поле в MSSQL потом название поле интеграции формы.\r\nНапример: \r\nLastName,Фамилия\r\nFirstName,Имя" ;
+            // 
+            // label10
+            // 
+            label10.Dock= DockStyle.Fill ;
+            label10.Location= new Point( 4, 409 ) ;
+            label10.Name= "label10" ;
+            label10.Size= new Size( 279, 50 ) ;
+            label10.TabIndex= 20 ;
+            label10.Text= "Домен сайта" ;
+            // 
+            // _domain
+            // 
+            _domain.Dock= DockStyle.Fill ;
+            _domain.Location= new Point( 290, 412 ) ;
+            _domain.Name= "_domain" ;
+            _domain.Size= new Size( 660, 31 ) ;
+            _domain.TabIndex= 21 ;
             // 
             // splitter1
             // 
@@ -400,5 +423,7 @@
         private Panel panel4;
         private Label label9;
         private TextBox _dateField;
+        private Label label10;
+        private TextBox _domain;
     }
 }

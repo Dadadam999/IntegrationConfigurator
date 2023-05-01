@@ -68,6 +68,7 @@
             existingModel.FormId = model.FormId;
             existingModel.IntegrationId = model.IntegrationId;
             existingModel.DateField = model.DateField;
+            existingModel.Domain = model.Domain;
 
             _integration.Serialize();
         }

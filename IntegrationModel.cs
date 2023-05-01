@@ -18,5 +18,6 @@ namespace IntegrationConfigurator
         public string FormId { get; set; }
         public string IntegrationId { get; set; }
         public string DateField { get; set; }
+        public string Domain { get; set; }
     }
 }
