@@ -12,7 +12,7 @@ namespace IntegrationConfigurator
         public string Name { get; set; }
         public string ConnectionString { get; set; }
         public string TableName { get; set; }
-        public Dictionary<string, string>? FieldsMatching { get; set; }
+        public Dictionary<string, string> FieldsMatching { get; set; }
         public string CycleFormField { get; set; }
         public string SecretKey { get; set; }
         public string FormId { get; set; }

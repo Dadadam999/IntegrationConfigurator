@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IntegrationConfigurator
+﻿namespace IntegrationConfigurator
 {
     internal class ListManager
     {
@@ -58,7 +52,25 @@ namespace IntegrationConfigurator
 
         public void Save( IntegrationModel model )
         {
+            IntegrationModel? existingModel = _integration.GetByName( model.Name );
+            
+            if( existingModel == null )
+            {
+                MessageBox.Show( "Ошибка при сохранении интеграции!" );
+                return;
+            }
 
+            existingModel.ConnectionString = model.ConnectionString;
+            existingModel.TableName = model.TableName;
+            existingModel.FieldsMatching = model.FieldsMatching;
+            existingModel.CycleFormField = model.CycleFormField;
+            existingModel.SecretKey = model.SecretKey;
+            existingModel.FormId = model.FormId;
+            existingModel.IntegrationId = model.IntegrationId;
+            existingModel.DateField = model.DateField;
+
+            _integration.Serialize();
         }
+
     }
 }
