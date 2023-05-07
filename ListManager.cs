@@ -61,15 +61,17 @@
             }
 
             existingModel.ConnectionString = model.ConnectionString;
-            existingModel.TableName = model.TableName;
+            existingModel.TableNamePreview = model.TableNamePreview;
+            existingModel.TableNameCycles = model.TableNameCycles;
             existingModel.FieldsMatching = model.FieldsMatching;
             existingModel.CycleFormField = model.CycleFormField;
+            existingModel.CyclesListField = model.CyclesListField;
             existingModel.SecretKey = model.SecretKey;
             existingModel.FormId = model.FormId;
             existingModel.IntegrationId = model.IntegrationId;
             existingModel.DateField = model.DateField;
             existingModel.Domain = model.Domain;
-
+            existingModel.OrderIdField = model.OrderIdField;
             _integration.Serialize();
         }
 
