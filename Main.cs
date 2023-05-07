@@ -32,6 +32,7 @@ namespace IntegrationConfigurator
                 _dateField.Text,
                 _domain.Text,
                 _orderIdField.Text,
+                _periodDate.Text,
             } );
 
             if( Validation.IsEmpty() )
@@ -54,6 +55,7 @@ namespace IntegrationConfigurator
             model.DateField = _dateField.Text;
             model.Domain = _domain.Text;
             model.OrderIdField = _orderIdField.Text;
+            model.PeriodDate = _periodDate.Text;
             _listManager.Save( model );
             MessageBox.Show( "Данный сохранены!" );
         }
@@ -95,6 +97,7 @@ namespace IntegrationConfigurator
                 _dateField.Text = model.DateField;
                 _domain.Text = model.Domain;
                 _orderIdField.Text = model.OrderIdField;
+                _periodDate.Text = model.PeriodDate;
             }
         }
 

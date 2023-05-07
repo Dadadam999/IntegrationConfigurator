@@ -49,6 +49,8 @@
             label4= new Label() ;
             label10= new Label() ;
             _domain= new TextBox() ;
+            label14= new Label() ;
+            _periodDate= new TextBox() ;
             tabPage2= new TabPage() ;
             tableLayoutPanel2= new TableLayoutPanel() ;
             label3= new Label() ;
@@ -185,10 +187,12 @@
             tableLayoutPanel1.Controls.Add( label4, 0, 3 );
             tableLayoutPanel1.Controls.Add( label10, 0, 2 );
             tableLayoutPanel1.Controls.Add( _domain, 1, 2 );
+            tableLayoutPanel1.Controls.Add( label14, 0, 6 );
+            tableLayoutPanel1.Controls.Add( _periodDate, 1, 6 );
             tableLayoutPanel1.Dock= DockStyle.Fill ;
             tableLayoutPanel1.Location= new Point( 3, 3 ) ;
             tableLayoutPanel1.Name= "tableLayoutPanel1" ;
-            tableLayoutPanel1.RowCount= 7 ;
+            tableLayoutPanel1.RowCount= 8 ;
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
@@ -196,6 +200,7 @@
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
+            tableLayoutPanel1.RowStyles.Add( new RowStyle( SizeType.Absolute, 20F ) );
             tableLayoutPanel1.Size= new Size( 940, 1131 ) ;
             tableLayoutPanel1.TabIndex= 0 ;
             // 
@@ -301,6 +306,24 @@
             _domain.Name= "_domain" ;
             _domain.Size= new Size( 650, 31 ) ;
             _domain.TabIndex= 21 ;
+            // 
+            // label14
+            // 
+            label14.AutoSize= true ;
+            label14.Location= new Point( 4, 307 ) ;
+            label14.Name= "label14" ;
+            label14.Size= new Size( 203, 25 ) ;
+            label14.TabIndex= 23 ;
+            label14.Text= "Период выгрузки (дни)" ;
+            // 
+            // _periodDate
+            // 
+            _periodDate.Dock= DockStyle.Fill ;
+            _periodDate.Location= new Point( 286, 310 ) ;
+            _periodDate.Name= "_periodDate" ;
+            _periodDate.Size= new Size( 650, 31 ) ;
+            _periodDate.TabIndex= 24 ;
+            _periodDate.Text= "90" ;
             // 
             // tabPage2
             // 
@@ -580,5 +603,7 @@
         private TextBox _cyclesListField;
         private Label label13;
         private TextBox _orderIdField;
+        private Label label14;
+        private TextBox _periodDate;
     }
 }

@@ -72,6 +72,7 @@
             existingModel.DateField = model.DateField;
             existingModel.Domain = model.Domain;
             existingModel.OrderIdField = model.OrderIdField;
+            existingModel.PeriodDate = model.PeriodDate;
             _integration.Serialize();
         }
 
