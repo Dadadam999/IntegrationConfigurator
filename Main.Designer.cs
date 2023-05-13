@@ -69,6 +69,8 @@
             _cycleFormField= new TextBox() ;
             label12= new Label() ;
             _cyclesListField= new TextBox() ;
+            label15= new Label() ;
+            _checkedCyclesField= new TextBox() ;
             _save= new Button() ;
             splitter1= new Splitter() ;
             panel1.SuspendLayout();
@@ -453,10 +455,13 @@
             tableLayoutPanel3.Controls.Add( _cycleFormField, 1, 2 );
             tableLayoutPanel3.Controls.Add( label12, 0, 1 );
             tableLayoutPanel3.Controls.Add( _cyclesListField, 1, 1 );
+            tableLayoutPanel3.Controls.Add( label15, 0, 3 );
+            tableLayoutPanel3.Controls.Add( _checkedCyclesField, 1, 3 );
             tableLayoutPanel3.Dock= DockStyle.Fill ;
             tableLayoutPanel3.Location= new Point( 0, 0 ) ;
             tableLayoutPanel3.Name= "tableLayoutPanel3" ;
-            tableLayoutPanel3.RowCount= 4 ;
+            tableLayoutPanel3.RowCount= 5 ;
+            tableLayoutPanel3.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel3.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel3.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
             tableLayoutPanel3.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
@@ -514,6 +519,23 @@
             _cyclesListField.Name= "_cyclesListField" ;
             _cyclesListField.Size= new Size( 655, 31 ) ;
             _cyclesListField.TabIndex= 27 ;
+            // 
+            // label15
+            // 
+            label15.AutoSize= true ;
+            label15.Location= new Point( 4, 154 ) ;
+            label15.Name= "label15" ;
+            label15.Size= new Size( 276, 25 ) ;
+            label15.TabIndex= 28 ;
+            label15.Text= "Имя поля выбора цикла MSSQL" ;
+            // 
+            // _checkedCyclesField
+            // 
+            _checkedCyclesField.Dock= DockStyle.Fill ;
+            _checkedCyclesField.Location= new Point( 287, 157 ) ;
+            _checkedCyclesField.Name= "_checkedCyclesField" ;
+            _checkedCyclesField.Size= new Size( 655, 31 ) ;
+            _checkedCyclesField.TabIndex= 29 ;
             // 
             // _save
             // 
@@ -605,5 +627,7 @@
         private TextBox _orderIdField;
         private Label label14;
         private TextBox _periodDate;
+        private Label label15;
+        private TextBox _checkedCyclesField;
     }
 }

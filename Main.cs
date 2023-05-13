@@ -33,6 +33,7 @@ namespace IntegrationConfigurator
                 _domain.Text,
                 _orderIdField.Text,
                 _periodDate.Text,
+                _checkedCyclesField.Text
             } );
 
             if( Validation.IsEmpty() )
@@ -56,6 +57,7 @@ namespace IntegrationConfigurator
             model.Domain = _domain.Text;
             model.OrderIdField = _orderIdField.Text;
             model.PeriodDate = _periodDate.Text;
+            model.CheckedCyclesField = _checkedCyclesField.Text;
             _listManager.Save( model );
             MessageBox.Show( "Данный сохранены!" );
         }
@@ -98,6 +100,7 @@ namespace IntegrationConfigurator
                 _domain.Text = model.Domain;
                 _orderIdField.Text = model.OrderIdField;
                 _periodDate.Text = model.PeriodDate;
+                _checkedCyclesField.Text = model.CheckedCyclesField;
             }
         }
 
