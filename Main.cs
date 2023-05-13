@@ -45,7 +45,7 @@ namespace IntegrationConfigurator
             model.Name = _nameIntegration.Text;
             model.ConnectionString = _connectionString.Text;
             model.TableNamePreview = _tableNamePreview.Text;
-            model.TableNameCycles = _cycleFormField.Text;
+            model.TableNameCycles = _tableNameCycles.Text;
             model.FieldsMatching = _integration.ParseMatchingFieldsFromString( _fieldsMatching );
             model.CycleFormField = _cycleFormField.Text;
             model.CyclesListField = _cyclesListField.Text;
