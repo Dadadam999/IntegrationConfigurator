@@ -22,5 +22,6 @@
         public string CyclesListField { get; set; }
         public string CycleFormField { get; set; }
         public string CheckedCyclesField { get; set; }
+        public string TypeIntegration { get; set; }
     }
 }

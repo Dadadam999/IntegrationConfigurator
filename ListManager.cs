@@ -74,6 +74,7 @@
             existingModel.OrderIdField = model.OrderIdField;
             existingModel.PeriodDate = model.PeriodDate;
             existingModel.CheckedCyclesField = model.CheckedCyclesField;
+            existingModel.TypeIntegration = model.TypeIntegration;
             _integration.Serialize();
         }
 
