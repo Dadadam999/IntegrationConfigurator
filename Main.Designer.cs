@@ -31,6 +31,7 @@
             _list = new ListBox();
             panel1 = new Panel();
             panel2 = new Panel();
+            _copy = new FontAwesome.Sharp.IconButton();
             _delete = new Button();
             _add = new Button();
             panel3 = new Panel();
@@ -110,6 +111,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add( _copy );
             panel2.Controls.Add( _delete );
             panel2.Controls.Add( _add );
             panel2.Dock = DockStyle.Top;
@@ -117,6 +119,20 @@
             panel2.Name = "panel2";
             panel2.Size = new Size( 300, 40 );
             panel2.TabIndex = 1;
+            // 
+            // _copy
+            // 
+            _copy.Dock = DockStyle.Left;
+            _copy.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            _copy.IconColor = Color.Black;
+            _copy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            _copy.IconSize = 20;
+            _copy.Location = new Point( 80, 0 );
+            _copy.Name = "_copy";
+            _copy.Size = new Size( 40, 40 );
+            _copy.TabIndex = 3;
+            _copy.UseVisualStyleBackColor = true;
+            _copy.Click +=  _copy_Click ;
             // 
             // _delete
             // 
@@ -352,6 +368,7 @@
             _typeIntegration.Name = "_typeIntegration";
             _typeIntegration.Size = new Size( 650, 33 );
             _typeIntegration.TabIndex = 26;
+            _typeIntegration.SelectedIndexChanged +=  _typeIntegration_SelectedIndexChanged ;
             // 
             // tabPage2
             // 
@@ -657,5 +674,6 @@
         private TextBox _checkedCyclesField;
         private Label label16;
         private ComboBox _typeIntegration;
+        private FontAwesome.Sharp.IconButton _copy;
     }
 }

@@ -19,13 +19,38 @@ namespace IntegrationConfigurator
         {
             Validation.SetStrings( new List<string>
             {
+                _typeIntegration.Text
+            } );
+
+            if( Validation.IsEmpty() )
+            {
+                MessageBox.Show( "Выберите тип интеграции!" );
+                return;
+            }
+
+            if( _typeIntegration.Text == "Quick Form" )
+            {
+                Validation.SetStrings( new List<string>
+                {
+                    _tableNameCycles.Text,
+                    _checkedCyclesField.Text,
+                    _cycleFormField.Text,
+                    _cyclesListField.Text,
+                } );
+
+                if( Validation.IsEmpty() )
+                {
+                    MessageBox.Show( "Во вкалдке \"Циклы\" не все поля!" );
+                    return;
+                }
+            }
+
+            Validation.SetStrings( new List<string>
+            {
                 _nameIntegration.Text,
                 _connectionString.Text,
                 _tableNamePreview.Text,
-                _tableNameCycles.Text,
                 _fieldsMatching.Text,
-                _cycleFormField.Text,
-                _cyclesListField.Text,
                 _secretKey.Text,
                 _formId.Text,
                 _integrationId.Text,
@@ -33,8 +58,6 @@ namespace IntegrationConfigurator
                 _domain.Text,
                 _orderIdField.Text,
                 _periodDate.Text,
-                _checkedCyclesField.Text,
-                _typeIntegration.Text
             } );
 
             if( Validation.IsEmpty() )
@@ -67,6 +90,12 @@ namespace IntegrationConfigurator
         private void _add_Click( object sender, EventArgs e )
         {
             _listManager.Add();
+            Refrash();
+        }
+
+        private void _copy_Click( object sender, EventArgs e )
+        {
+            _listManager.Copy();
             Refrash();
         }
 
@@ -110,6 +139,15 @@ namespace IntegrationConfigurator
         private void _list_SelectedIndexChanged( object sender, EventArgs e )
         {
             Refrash();
+        }
+
+        private void _typeIntegration_SelectedIndexChanged( object sender, EventArgs e )
+        {
+            bool isYandex = _typeIntegration.Text == "Yandex";
+            _tableNameCycles.Enabled = !isYandex;
+            _checkedCyclesField.Enabled = !isYandex;
+            _cycleFormField.Enabled = !isYandex;
+            _cyclesListField.Enabled = !isYandex;
         }
     }
 }

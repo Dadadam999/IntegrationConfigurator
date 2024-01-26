@@ -50,6 +50,44 @@
             }
         }
 
+        public void Copy()
+        {
+            if( _integration.Integrations.Count <= 0 )
+            {
+                MessageBox.Show( "Список пуст!" );
+                return;
+            }
+
+            IntegrationModel? originalModel = _integration.GetByName( (string) _list.Items[_list.SelectedIndex] );
+
+            if( originalModel == null )
+            {
+                MessageBox.Show( "Выберите сохранённую интеграцию для копирования!" );
+                return;
+            }
+
+            IntegrationModel model = new();
+            model.ConnectionString = originalModel.ConnectionString;
+            model.TableNamePreview = originalModel.TableNamePreview;
+            model.TableNameCycles = originalModel.TableNameCycles;
+            model.FieldsMatching = originalModel.FieldsMatching;
+            model.CycleFormField = originalModel.CycleFormField;
+            model.CyclesListField = originalModel.CyclesListField;
+            model.SecretKey = originalModel.SecretKey;
+            model.FormId = originalModel.FormId;
+            model.IntegrationId = originalModel.IntegrationId;
+            model.DateField = originalModel.DateField;
+            model.Domain = originalModel.Domain;
+            model.OrderIdField = originalModel.OrderIdField;
+            model.PeriodDate = originalModel.PeriodDate;
+            model.CheckedCyclesField = originalModel.CheckedCyclesField;
+            model.TypeIntegration = originalModel.TypeIntegration;
+            model.Name = "Интеграция " + ( _list.Items.Count + 1 );
+            _integration.Integrations.Add( model );
+            Refrash();
+            _list.SelectedIndex = _list.Items.Count - 1;
+        }
+
         public void Save( IntegrationModel model )
         {
             IntegrationModel? existingModel = _integration.GetByName( model.Name );
