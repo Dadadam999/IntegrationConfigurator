@@ -82,6 +82,8 @@
             model.PeriodDate = originalModel.PeriodDate;
             model.CheckedCyclesField = originalModel.CheckedCyclesField;
             model.TypeIntegration = originalModel.TypeIntegration;
+            model.FormIdField = originalModel.FormIdField;
+            model.IsEnabled = originalModel.IsEnabled;
             model.Name = "Интеграция " + ( _list.Items.Count + 1 );
             _integration.Integrations.Add( model );
             Refrash();
@@ -113,7 +115,9 @@
             existingModel.PeriodDate = model.PeriodDate;
             existingModel.CheckedCyclesField = model.CheckedCyclesField;
             existingModel.TypeIntegration = model.TypeIntegration;
-            _integration.Serialize();
+            existingModel.FormIdField = model.FormIdField;
+            existingModel.IsEnabled = model.IsEnabled;
+             _integration.Serialize();
         }
 
     }

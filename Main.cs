@@ -57,6 +57,7 @@ namespace IntegrationConfigurator
                 _dateField.Text,
                 _domain.Text,
                 _orderIdField.Text,
+                _formIdField.Text,
                 _periodDate.Text,
             } );
 
@@ -80,29 +81,13 @@ namespace IntegrationConfigurator
             model.DateField = _dateField.Text;
             model.Domain = _domain.Text;
             model.OrderIdField = _orderIdField.Text;
+            model.FormIdField = _formIdField.Text;
             model.PeriodDate = _periodDate.Text;
             model.CheckedCyclesField = _checkedCyclesField.Text;
             model.TypeIntegration = _typeIntegration.Text;
+            model.IsEnabled = _isWorkIntegration.Checked;
             _listManager.Save( model );
             MessageBox.Show( "Данный сохранены!" );
-        }
-
-        private void _add_Click( object sender, EventArgs e )
-        {
-            _listManager.Add();
-            Refrash();
-        }
-
-        private void _copy_Click( object sender, EventArgs e )
-        {
-            _listManager.Copy();
-            Refrash();
-        }
-
-        private void _delete_Click( object sender, EventArgs e )
-        {
-            _listManager.Remove();
-            Refrash();
         }
 
         private void Refrash()
@@ -130,10 +115,30 @@ namespace IntegrationConfigurator
                 _dateField.Text = model.DateField;
                 _domain.Text = model.Domain;
                 _orderIdField.Text = model.OrderIdField;
+                _formIdField.Text = model.FormIdField;
                 _periodDate.Text = model.PeriodDate;
                 _checkedCyclesField.Text = model.CheckedCyclesField;
                 _typeIntegration.Text = model.TypeIntegration;
+                _isWorkIntegration.Checked = model.IsEnabled;
             }
+        }
+
+        private void _add_Click( object sender, EventArgs e )
+        {
+            _listManager.Add();
+            Refrash();
+        }
+
+        private void _copy_Click( object sender, EventArgs e )
+        {
+            _listManager.Copy();
+            Refrash();
+        }
+
+        private void _delete_Click( object sender, EventArgs e )
+        {
+            _listManager.Remove();
+            Refrash();
         }
 
         private void _list_SelectedIndexChanged( object sender, EventArgs e )
